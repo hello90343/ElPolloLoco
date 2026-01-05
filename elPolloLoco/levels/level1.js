@@ -6,15 +6,18 @@ function initLevel() {
 // new Level wird nur einmal aufgerufen unter level1
 // Die Argumente werden hier weiterübergeben (Teil1)
 // Die erste Instanz, die erstellt wird, ist level1.
+
+let chickenArr = [
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken()
+];
+
 level1 = new Level([
     // Ausgabe der Chicken-Datei
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
+    ...chickenArr,
     // Ausgabe der Endboss-Datei
     new Endboss()
 ],

@@ -40,6 +40,7 @@ setWorld() {
 
 run() {
     setInterval(() => {
+        this.deadCollision();
         this.checkCollision();
         this.checkThrowObjects();
         // Jede 200 Sekunden wird geprüft, ob das Bild 
@@ -56,25 +57,34 @@ checkThrowObjects() {
     }
 }
 
-checkCollision() {
-        // Jeder Chicken wird angesprochen
-        // Wenn eines der Chicken den Charakter trifft, dann Nachricht
-        this.level.enemies.forEach((enemy) => {
-            // An dieses Enemy wird die Methode angeheftet, 
-            // die in character enthalten ist und diese soll in 
+ checkCollision() {
+         // Jeder Chicken wird angesprochen
+         // Wenn eines der Chicken den Charakter trifft, dann Nachricht
+         this.level.enemies.forEach((enemy) => {
+             // An dieses Enemy wird die Methode angeheftet, 
+             // die in character enthalten ist und diese soll in 
             // diesem Objekt (this) enthalten sein.
-            // Wenn Chicken/enemy mit Character zusammenstossen, dann
-        if(this./*Wenn diese Character kollidiert mit Chicken, dann*/character.isColliding(enemy)) {
-               // Minus Energy, dann und speichert aktuellen Zeitpunkt
-               // isHurt() ist die wahre Funktion von hit()
-               this.character.hit();
-               // this.character.energy kommt aus der Klasse MovableObject
-               // und wird vom Character geerbt.
-               // Statusbar erhält Prozent und aktuallisiert sich durch checkCollision
-               this.statusBar.setPercentage(this.character.energy); // class Character und Variable energy
-            }
-        });
-}
+             // Wenn Chicken/enemy mit Character zusammenstossen, dann
+         if(this./*Wenn diese Character kollidiert mit Chicken, dann*/character.isColliding(enemy)) {
+                // Minus Energy, dann und speichert aktuellen Zeitpunkt
+                // isHurt() ist die wahre Funktion von hit()
+                this.character.hit();
+                // this.character.energy kommt aus der Klasse MovableObject
+                // und wird vom Character geerbt.
+                // Statusbar erhält Prozent und aktuallisiert sich durch checkCollision
+                this.statusBar.setPercentage(this.character.energy); // class Character und Variable energy
+             }
+         });
+ } 
+
+ deadCollision() {
+    this.level.enemies.forEach((enemy) => {
+        if(this.character.headColliding(enemy)) {
+            enemy.height = 0;
+        }
+    })
+} 
+
 
     draw() {
         // Vorherige Zeichnung gelöscht

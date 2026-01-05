@@ -2,7 +2,7 @@
 class Character extends MovableObject {
     height = 250; // wie groß es ist (width, height)
     y = 80; // wo ist es
-    speed = 40; // Geschwindigkeit des Characters
+    speed = 10; // Geschwindigkeit des Characters
     IMAGES_WALKING = [
                'imgs/2_character_pepe/2_walk/W-21.png',
                'imgs/2_character_pepe/2_walk/W-22.png',

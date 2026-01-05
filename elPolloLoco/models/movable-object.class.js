@@ -8,6 +8,8 @@ class MovableObject extends DrawableObject {
     acceleration = 2.5; // Negativ Startwert durch acceleration
     energy = 100;
     lastHit = 0;
+    deadStatus = true;
+    jumpHigh = 20;
 
     // Für den Sprung gedacht appyGravity()
     applyGravity(){
@@ -43,14 +45,40 @@ class MovableObject extends DrawableObject {
         // this.x + this.width (Vordere Seite des Charakters)
         // mo.x (Vordere Seite des Chickens)
         // Wenn beide mit der vorderen Seite treffen, dann wird eine Action ausgelöst
-        return this.x + this.width > mo.x &&
-        // Wenn die grösse vom Character grösser ist, also bei Chicken
+               return this.x + this.width > mo.x &&
+               // Wenn die grösse vom Character grösser ist, also bei Chicken
                this.y + this.height > mo.y &&
                // Hintere Seite vom Charakter wird angesprochen
                this.x < mo.x &&
                // Wenn Chicken von der Grösse, grösser ist als der Character
                this.y < mo.y + mo.height;
     }
+
+headColliding(mo) {
+/*     y beginnt oben → das ist der obere Rand (Kopf)
+    height ist die gesamte Höhe des Charakters */
+    // 105
+    console.log(`${this.y} Character Y`);
+    // 250
+    console.log(`${this.height} Character Height`);
+    // 360
+    console.log(`${mo.y} Chicken y`);
+    // 80
+    console.log(`${mo.height} Chicken Height`);
+
+    
+/*     this.y              → Oberkante (Kopf)
+this.y + this.height → Unterkante (Füße)
+
+mo.y                → Oberkante vom Chicken
+mo.y + mo.height    → Unterkante vom Chicken */
+    return (
+        this.x + this.width > mo.x + mo.width && 
+        this.y < mo.y + mo.height - 250 &&
+        mo.y < this.y + this.height
+    );
+}
+
 
     // Wenn zusammenprall mit den Chicken/enemy, dann Abzug der 
     // energy und lastHit erhält neuen Wert für isHurt()/Methode
@@ -131,7 +159,7 @@ class MovableObject extends DrawableObject {
                   let path = images[i]; // Welche Index im Array
                   this.img = this.imageCache[path]; // Bild mit key aus dem Cache geholt
                   this.currentImage++; 
-    }
+}
 }
 
 /* let world = new World(canvas);
@@ -153,3 +181,9 @@ class MovableObject {
 │
 │
 ▼ y */
+
+/* y = 80        ← Kopf / obere Kante
+│
+│   (250 px Höhe)
+│
+y = 330       ← Füße / Boden */

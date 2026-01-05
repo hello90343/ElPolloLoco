@@ -25,14 +25,13 @@ class Chicken extends MovableObject {
        this.speed = 0.15 + Math.random() * 3;
        // Automatisches Gehen der Chicken
        this.animate();
-       this.jumpHighDown();
     }
 
 animate() {
   let movingRight = false;
 
   setInterval(() => {
-    if (this.x < 130) {
+    if (this.x < 250) {
       movingRight = true;
     }
 
@@ -52,18 +51,6 @@ animate() {
 
   setInterval(() => {
     this.playAnimation(this.IMAGES_WALKING);
-  }, 200);
+  }, 500);
 }
-
-   jumpHighDown() {
-    let up = true;
-    setInterval(() => {
-      if(up) {
-        this.y -= 40;
-      } else {
-        this.y += 40;
-      }
-      up = !up;
-    }, 500);
-   }
 }
