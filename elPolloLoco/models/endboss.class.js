@@ -1,0 +1,52 @@
+// Aufgerufen alle in level1 
+class Endboss extends MovableObject {
+
+    height = 300; // wie groß es ist (width, height)
+    width = 300; // wie groß es ist (width, height)
+    y = 35; // wo ist es
+
+     IMAGES_WALKING = [
+        'imgs/4_enemie_boss_chicken/2_alert/G5.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G6.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G7.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G8.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G9.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G10.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G11.png',
+        'imgs/4_enemie_boss_chicken/2_alert/G12.png'
+    ]; 
+
+    hadFirstContact = false;
+
+    constructor() {
+        // Ein Bild laden
+        super().loadImage(this.IMAGES_WALKING[0]);
+        // Bilder laden -> mit Animation
+        this.loadImages(this.IMAGES_WALKING);
+        this.x = 2500; // wo ist es
+        // this.animate(); // Methode Aufruf
+    }
+
+    animate() {
+        let i = 0;
+        setInterval(() => {
+            // wird benutzt, um die erste Animation zeitlich zu begrenzen.
+            if(i < 10) {
+                // 10 Intervall * 150 Milisekunden = 1,5 Sekunden
+                // erste ~1,5 Sekunden → SPAWNING-Animation
+                // this.playAnimation(this.IMAGES_SPARWING);
+            } else {
+                // danach dauerhaft → SWIMMING-Animation
+                this.playAnimation(this.IMAGES_WALKING);
+            }
+            i++;
+            
+/*          Der Code zählt Zeit (i), spielt Animationen
+            und triggert ein Ereignis bei einer bestimmten Position. */
+            if(world.character.x > 2800 && !hadFirstContact) {
+                i = 0;
+                hadFirstContact = true;
+            }
+        }, 150);
+   }
+}

@@ -1,0 +1,24 @@
+- Die Y-Achse fängt ab oben an und nicht von unten.
+- craftpix.net // Für spezielle Figuren
+- 2D = Breite + Höhe
+- Mit getContext('2d') erhalten wir den 2D-Zeichenkontext des Canvas,
+der alle Funktionen zum Zeichnen von Bildern, Formen, Text und Animationen bereitstellt.
+- Klassen -> Alle Funktionen von einem Objekt
+- Von jedem Charakter die Eigenschaften hinzufügen/schaue Bild
+- Kohäsion (Alles in einem Objekt/class gekapselts)
+- In den class deklariert man keine Variablen, sondern man schreibt auf 
+nur variable = 12;, statt let variable = 12;
+- Eine Elternklasse kann nicht direkt auf Methoden einer Kinderklasse zugreifen.
+- Nur der constructor läuft automatisch. Alles andere musst du selbst starten(Methoden).
+-  Das Kind erbt automatisch alle Properties und Methoden, die im Elternteil definiert sind.
+
+1. Coins sammeln
+2. Flaschen einsammeln
+3. Flaschen nur werfen, wenn sie vorhanden sind
+4. Collisionen
+5. Endgegner besiegen
+6. Game-Over Screen
+7. Fullscreen
+8. Erklärung welche Tasten
+
+Mit der ID arbeiten, wenn wir uns bei der Smartphone-Ansicht befinden werden

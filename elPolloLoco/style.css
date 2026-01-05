@@ -1,0 +1,56 @@
+@font-face {
+        font-family: Sekuya;
+        src: url(Sekuya-Regular.ttf);
+    }
+
+* {
+    font-family: Sekuya, Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    background-image: url(imgs/10_background/backgroundImage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+canvas {
+    background-color: black;
+    display: block;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}
+
+@media only screen and (max-width: 720px) {
+    canvas {
+        width: 100%;
+    } 
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    body {
+        padding-top: 0px;
+        margin: 0px;
+        overflow: hidden;
+    }
+    h1 {
+        display: none;
+    }
+    canvas {
+        min-height: 100vw;
+        min-width: 100vh;
+        transform: rotate(90deg);
+    } 
+}
