@@ -74,7 +74,7 @@ mo.y                → Oberkante vom Chicken
 mo.y + mo.height    → Unterkante vom Chicken */
     return (
         this.x + this.width > mo.x + mo.width && 
-        this.y < mo.y + mo.height - 250 &&
+        this.y < mo.y + mo.height - 270 &&
         mo.y < this.y + this.height
     );
 }

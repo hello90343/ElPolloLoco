@@ -20,6 +20,7 @@ keyboard;
 camera_x = 0;
 statusBar = new StatusBar(); // Statusbar aufrufen und verwenden als Variable
 throwableObjects = [];
+deadChicken = [];
 
 // An den constructor werden die Argumente abgegeben
 constructor(canvas, keyboard) {
@@ -65,6 +66,8 @@ checkThrowObjects() {
              // die in character enthalten ist und diese soll in 
             // diesem Objekt (this) enthalten sein.
              // Wenn Chicken/enemy mit Character zusammenstossen, dann
+
+         if(this.deadChicken.includes(enemy)) return;
          if(this./*Wenn diese Character kollidiert mit Chicken, dann*/character.isColliding(enemy)) {
                 // Minus Energy, dann und speichert aktuellen Zeitpunkt
                 // isHurt() ist die wahre Funktion von hit()
@@ -81,10 +84,10 @@ checkThrowObjects() {
     this.level.enemies.forEach((enemy) => {
         if(this.character.headColliding(enemy)) {
             enemy.height = 0;
+            this.deadChicken.push(enemy);
         }
     })
 } 
-
 
     draw() {
         // Vorherige Zeichnung gelöscht
