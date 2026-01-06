@@ -80,14 +80,41 @@ checkThrowObjects() {
          });
  } 
 
- deadCollision() {
+  deadCollision() {
     this.level.enemies.forEach((enemy) => {
         if(this.character.headColliding(enemy)) {
-            enemy.height = 0;
+            enemy.speed = 0;
+            enemy.flatChicken(true);
+            setTimeout(() => {
+                enemy.height = 0;
+            }, 700);
+            this.character.jump(); 
             this.deadChicken.push(enemy);
         }
     })
 } 
+
+/* deadCollision() {
+    this.level.enemies.forEach((enemy) => {
+
+        if (this.deadChicken.includes(enemy)) return;
+
+        if (this.character.headColliding(enemy)) {
+
+            this.character.jump();
+
+            // Dead-Animation anzeigen
+            enemy.playAnimation(enemy.IMAGES_DEAD);
+
+            // Nach 3 Sekunden Chicken "entfernen"
+            setTimeout(() => {
+                enemy.height = 0;
+            }, 3000);
+
+            this.deadChicken.push(enemy);
+        }
+    });
+} */
 
     draw() {
         // Vorherige Zeichnung gelöscht

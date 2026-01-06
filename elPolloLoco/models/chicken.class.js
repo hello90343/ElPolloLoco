@@ -4,12 +4,17 @@ class Chicken extends MovableObject {
        height = 80; // wie groß es ist (width, height)
        width= 80; // wie groß es ist (width, height)
        // Bilder vom Chicken für die Animation
+
+
        IMAGES_WALKING = [
         'imgs/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
         'imgs/3_enemies_chicken/chicken_normal/1_walk/2_w.png',
         'imgs/3_enemies_chicken/chicken_normal/1_walk/3_w.png'
        ];
 
+       IMAGES_DEAD = [
+        'imgs/3_enemies_chicken/chicken_normal/2_dead/dead.png'
+       ];
 
        // Durch den Aufruf im World, wird der constructor automatisch aufgerufen
        // Da MovableObject die obere Class ist, können wir von dort aus nur alle Metohde entnehmen.
@@ -18,18 +23,21 @@ class Chicken extends MovableObject {
        super().loadImage('imgs/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
        // Array wird weitergeleitet, damit im anderen Array gespeichert. Für die Performance.
        this.loadImages(this.IMAGES_WALKING);
+       this.loadImages(this.IMAGES_DEAD);
 
        // Zufällige Zahl, die die Position der Chicken aussucht
        this.x = 600 + Math.random() * 500;
        // Zufällige Zahl, die die Geschwindigkeit der Chicken aussucht
-       this.speed = 0.15 + Math.random() * 3;
+       this.speed = 0.15 + Math.random() * 1;
        // Automatisches Gehen der Chicken
        this.animate();
+       this.flatChicken();
     }
 
 animate() {
   let movingRight = false;
-
+  // y 80
+  console.log(`${this.y} Chicken`);
   setInterval(() => {
     if (this.x < 250) {
       movingRight = true;
@@ -47,10 +55,15 @@ animate() {
       this.otherDirection = false;
     }
 
-  }, 1000 / 60);
+  }), 5000 / 60;
+}
 
+flatChicken(boelean) {
+  this.playAnimation(this.IMAGES_WALKING);
   setInterval(() => {
-    this.playAnimation(this.IMAGES_WALKING);
-  }, 500);
+  if(boelean) {
+    this.playAnimation(this.IMAGES_DEAD);
+  }
+}, 5000 / 60);
 }
 }

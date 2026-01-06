@@ -77,6 +77,7 @@ class Character extends MovableObject {
         setInterval(() => {
 
                   // Rechts Bewegung
+                  console.log(`${this.y} Character`);
                   if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                     this.moveRight();
                     this.otherDirection = false;
@@ -104,7 +105,6 @@ class Character extends MovableObject {
             // Wenn energy = 0, dann diese Animation
             if(this.isDead()) {
                 this.playAnimation(this.IMAGES_DEAD)
-                // 
             } else if(this.isHurt()) {
                 this.playAnimation(this.IMAGES_HURT);
             } else if(this.isAboveGround()) {

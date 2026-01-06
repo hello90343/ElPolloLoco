@@ -8,11 +8,11 @@ function initLevel() {
 // Die erste Instanz, die erstellt wird, ist level1.
 
 let chickenArr = [
-    chicken1 = new Chicken(),
-    chicken2 = new Chicken(),
-    chicken3 = new Chicken(),
-    chicken4 = new Chicken(),
-    chicken5 = new Chicken()
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken()
 ];
 
 level1 = new Level([

@@ -58,13 +58,13 @@ headColliding(mo) {
 /*     y beginnt oben → das ist der obere Rand (Kopf)
     height ist die gesamte Höhe des Charakters */
     // 105
-    console.log(`${this.y} Character Y`);
+    // console.log(`${this.y} Character Y`);
     // 250
-    console.log(`${this.height} Character Height`);
+    // console.log(`${this.height} Character Height`);
     // 360
-    console.log(`${mo.y} Chicken y`);
+    // console.log(`${mo.y} Chicken y`);
     // 80
-    console.log(`${mo.height} Chicken Height`);
+    // console.log(`${mo.height} Chicken Height`);
 
     
 /*     this.y              → Oberkante (Kopf)
@@ -72,12 +72,17 @@ this.y + this.height → Unterkante (Füße)
 
 mo.y                → Oberkante vom Chicken
 mo.y + mo.height    → Unterkante vom Chicken */
-    return (
-        this.x + this.width > mo.x + mo.width && 
-        this.y < mo.y + mo.height - 270 &&
-        mo.y < this.y + this.height
-    );
+// Gültig ab dem Höchstsprung
+if(this.y > 150) {
+return (
+    this.y < mo.y + mo.height - 270 &&
+    mo.y < this.y + this.height &&
+    this.x + this.width > mo.x &&
+    this.x < mo.x + mo.width
+    
+);
 }
+ }
 
 
     // Wenn zusammenprall mit den Chicken/enemy, dann Abzug der 
@@ -150,6 +155,7 @@ mo.y + mo.height    → Unterkante vom Chicken */
     jump() {
        this.speedY = 30;
     }
+
     // Die Bilder wiederholen sich
     playAnimation(images) {
                   // Walk-Animation
@@ -160,6 +166,8 @@ mo.y + mo.height    → Unterkante vom Chicken */
                   this.img = this.imageCache[path]; // Bild mit key aus dem Cache geholt
                   this.currentImage++; 
 }
+
+
 }
 
 /* let world = new World(canvas);
