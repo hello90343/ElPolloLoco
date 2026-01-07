@@ -27,7 +27,7 @@ class Chicken extends MovableObject {
        this.loadImages(this.IMAGES_DEAD);
 
        // Zufällige Zahl, die die Position der Chicken aussucht
-       this.x =  Math.random() * 1800;
+       this.x =  500 + Math.random() * 1800;
        // Zufällige Zahl, die die Geschwindigkeit der Chicken aussucht
        this.speed = 0.15 + Math.random() * 1;
        // Automatisches Gehen der Chicken
@@ -40,7 +40,7 @@ animate() {
   // y 80
   console.log(`${this.y} Chicken`);
   setInterval(() => {
-    if (this.x < 250) {
+    if (this.x < 400) {
       movingRight = true;
     }
 

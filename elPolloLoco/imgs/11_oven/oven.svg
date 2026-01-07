@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="520" viewBox="0 0 420 520" role="img" aria-label="Ofen mit Feuer">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b3f46"/>
+      <stop offset="1" stop-color="#161a20"/>
+    </linearGradient>
+
+    <linearGradient id="metalEdge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0f1318"/>
+      <stop offset="0.5" stop-color="#3a3f47"/>
+      <stop offset="1" stop-color="#0f1318"/>
+    </linearGradient>
+
+    <radialGradient id="fireGlow" cx="50%" cy="65%" r="70%">
+      <stop offset="0" stop-color="#fff1b8" stop-opacity="1"/>
+      <stop offset="0.35" stop-color="#ffb000" stop-opacity="0.98"/>
+      <stop offset="0.65" stop-color="#ff4d00" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2b0b00" stop-opacity="0.25"/>
+    </radialGradient>
+
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0f14" stop-opacity="0.35"/>
+      <stop offset="0.55" stop-color="#0b0f14" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#0b0f14" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="flameBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+
+    <clipPath id="windowClip">
+      <rect x="105" y="165" width="210" height="190" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <!-- Stove body -->
+  <g filter="url(#softShadow)">
+    <rect x="60" y="90" width="300" height="340" rx="22" fill="url(#metal)" stroke="url(#metalEdge)" stroke-width="6"/>
+    <!-- Top plate -->
+    <rect x="55" y="78" width="310" height="36" rx="16" fill="#11161c" stroke="#2f353d" stroke-width="4"/>
+    <!-- Chimney -->
+    <rect x="175" y="12" width="70" height="92" rx="18" fill="#0f141a" stroke="#2b3139" stroke-width="4"/>
+    <rect x="168" y="86" width="84" height="34" rx="16" fill="#0b1016" stroke="#2b3139" stroke-width="4"/>
+  </g>
+
+  <!-- Door frame -->
+  <g>
+    <rect x="90" y="140" width="240" height="250" rx="26" fill="#0f141a" stroke="#2f353d" stroke-width="6"/>
+    <rect x="105" y="155" width="210" height="220" rx="22" fill="#0a0f14" stroke="#343b44" stroke-width="4"/>
+  </g>
+
+  <!-- Fire inside the window -->
+  <g clip-path="url(#windowClip)">
+    <rect x="105" y="155" width="210" height="220" fill="url(#fireGlow)"/>
+
+    <!-- Embers -->
+    <g opacity="0.9">
+      <circle cx="145" cy="338" r="7" fill="#ff6a00"/>
+      <circle cx="178" cy="350" r="6" fill="#ffb000"/>
+      <circle cx="212" cy="344" r="8" fill="#ff3a00"/>
+      <circle cx="248" cy="352" r="6" fill="#ffd27a"/>
+      <circle cx="276" cy="338" r="7" fill="#ff6a00"/>
+      <circle cx="230" cy="365" r="5" fill="#ffb000"/>
+      <circle cx="165" cy="366" r="5" fill="#ff3a00"/>
+    </g>
+
+    <!-- Flames -->
+    <g filter="url(#flameBlur)">
+      <path d="M145 365 C130 330, 150 305, 145 275 C140 245, 120 230, 135 200 C150 170, 170 180, 165 210 C160 240, 190 250, 175 285 C160 320, 185 335, 170 365 Z"
+            fill="#ff3a00" opacity="0.95"/>
+      <path d="M205 365 C190 335, 210 310, 205 280 C200 250, 180 232, 195 205 C210 175, 235 185, 228 215 C220 250, 255 255, 240 292 C225 328, 255 340, 238 365 Z"
+            fill="#ff7a00" opacity="0.9"/>
+      <path d="M265 365 C250 335, 272 312, 265 282 C258 250, 240 238, 252 212 C265 182, 290 190, 285 220 C280 250, 308 262, 295 295 C282 328, 308 342, 292 365 Z"
+            fill="#ff2a00" opacity="0.92"/>
+
+      <!-- Inner bright tongues -->
+      <path d="M170 365 C160 345, 170 330, 170 310 C170 285, 155 270, 168 245 C180 222, 196 228, 192 252 C188 277, 210 285, 202 310 C194 335, 210 345, 200 365 Z"
+            fill="#ffe9b0" opacity="0.85"/>
+      <path d="M235 365 C225 345, 238 330, 236 310 C234 285, 220 270, 232 245 C245 220, 265 228, 260 255 C255 280, 277 288, 268 312 C258 336, 272 346, 262 365 Z"
+            fill="#fff3c8" opacity="0.8"/>
+    </g>
+
+    <!-- Logs -->
+    <g opacity="0.9">
+      <rect x="125" y="348" width="170" height="18" rx="9" fill="#3a2418"/>
+      <rect x="140" y="336" width="140" height="16" rx="8" fill="#2f1c13"/>
+      <path d="M135 356 L290 356" stroke="#5b3a28" stroke-width="3" opacity="0.6"/>
+    </g>
+
+    <!-- Smoke haze -->
+    <rect x="105" y="155" width="210" height="220" fill="url(#glass)" opacity="0.55"/>
+    <!-- Reflections -->
+    <path d="M120 170 C150 160, 190 160, 220 170" stroke="#ffffff" stroke-opacity="0.25" stroke-width="6" fill="none" />
+    <path d="M120 205 C160 192, 205 194, 245 210" stroke="#ffffff" stroke-opacity="0.16" stroke-width="5" fill="none" />
+  </g>
+
+  <!-- Handle + hinges -->
+  <g>
+    <circle cx="96" cy="255" r="6" fill="#cfd6df" opacity="0.8"/>
+    <circle cx="96" cy="300" r="6" fill="#cfd6df" opacity="0.8"/>
+    <rect x="328" y="240" width="16" height="28" rx="6" fill="#cfd6df" opacity="0.85"/>
+    <rect x="328" y="310" width="16" height="28" rx="6" fill="#cfd6df" opacity="0.85"/>
+    <rect x="70" y="245" width="44" height="14" rx="7" fill="#cfd6df" opacity="0.85"/>
+  </g>
+
+  <!-- Air vent -->
+  <g>
+    <rect x="130" y="395" width="160" height="28" rx="12" fill="#0b1016" stroke="#2f353d" stroke-width="4"/>
+    <g opacity="0.75">
+      <rect x="150" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+      <rect x="170" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+      <rect x="190" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+      <rect x="210" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+      <rect x="230" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+      <rect x="250" y="405" width="10" height="10" rx="3" fill="#39414b"/>
+    </g>
+    <circle cx="210" cy="409" r="7" fill="#cfd6df" opacity="0.8"/>
+  </g>
+
+  <!-- Legs -->
+  <g>
+    <path d="M95 430 C85 470, 92 495, 112 505 L135 505 C122 492, 118 468, 128 430 Z" fill="#0f141a"/>
+    <path d="M292 430 C282 470, 289 495, 309 505 L332 505 C319 492, 315 468, 325 430 Z" fill="#0f141a"/>
+  </g>
+</svg>

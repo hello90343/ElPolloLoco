@@ -19,6 +19,7 @@ keyboard;
  // this.camera_x = 0;  Objektwert 
 camera_x = 0;
 statusBar = new StatusBar(); // Statusbar aufrufen und verwenden als Variable
+oven = new Oven();
 throwableObjects = [];
 deadChicken = [];
 
@@ -135,6 +136,12 @@ checkThrowObjects() {
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
         this.ctx.translate(this.camera_x, 0); // Kamera wieder aktiv
+
+        // Space for fixed Objects (UI)
+        this.ctx.translate(-this.camera_x, 0);
+        this.addToMap(this.statusBar);
+        this.ctx.translate(this.camera_x, 0);
+        this.addToMap(this.oven); 
 
 
         this.addToMap(this.character);
