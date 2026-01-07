@@ -73,7 +73,7 @@ this.y + this.height → Unterkante (Füße)
 mo.y                → Oberkante vom Chicken
 mo.y + mo.height    → Unterkante vom Chicken */
 // Gültig ab dem Höchstsprung
-if(this.y > 150) {
+ if(this.y > 150) {
 return (
     this.y < mo.y + mo.height - 270 &&
     mo.y < this.y + this.height &&
@@ -81,7 +81,7 @@ return (
     this.x < mo.x + mo.width
     
 );
-}
+} 
  }
 
 

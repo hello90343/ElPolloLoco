@@ -4,6 +4,7 @@ class Chicken extends MovableObject {
        height = 80; // wie groß es ist (width, height)
        width= 80; // wie groß es ist (width, height)
        // Bilder vom Chicken für die Animation
+       
 
 
        IMAGES_WALKING = [
@@ -26,7 +27,7 @@ class Chicken extends MovableObject {
        this.loadImages(this.IMAGES_DEAD);
 
        // Zufällige Zahl, die die Position der Chicken aussucht
-       this.x = 600 + Math.random() * 500;
+       this.x =  Math.random() * 1800;
        // Zufällige Zahl, die die Geschwindigkeit der Chicken aussucht
        this.speed = 0.15 + Math.random() * 1;
        // Automatisches Gehen der Chicken
@@ -43,7 +44,7 @@ animate() {
       movingRight = true;
     }
 
-    if (this.x > 2800) {
+    if (this.x > 2500) {
       movingRight = false;
     }
 

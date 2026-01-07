@@ -22,3 +22,7 @@ nur variable = 12;, statt let variable = 12;
 8. Erklärung welche Tasten
 
 Mit der ID arbeiten, wenn wir uns bei der Smartphone-Ansicht befinden werden
+
+Die alle Intervalle sollen neugeladen werden, wenn 
+man verliert. Und das schafft man, wenn das 
+Video oder Quellcode bei Discord anschaut.

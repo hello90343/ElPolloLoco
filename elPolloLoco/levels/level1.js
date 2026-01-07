@@ -12,6 +12,10 @@ let chickenArr = [
     new Chicken(),
     new Chicken(),
     new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
+    new Chicken(),
     new Chicken()
 ];
 
