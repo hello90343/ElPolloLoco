@@ -131,7 +131,6 @@ checkThrowObjects() {
         // Background, Cloud, Chicken, Endboss
         this.addObjctsToMap(this.level.backgroundObjects);
 
-
         // Space for fixed Objects
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
@@ -141,8 +140,10 @@ checkThrowObjects() {
         this.ctx.translate(-this.camera_x, 0);
         this.addToMap(this.statusBar);
         this.ctx.translate(this.camera_x, 0);
-        this.addToMap(this.oven); 
+        this.addToMap(this.oven);     
 
+        this.addObjctsToMap(this.level.enemies);
+        this.addObjctsToMap(this.level.coints);
 
         this.addToMap(this.character);
         this.addObjctsToMap(this.level.clouds);
@@ -152,7 +153,6 @@ checkThrowObjects() {
 /*      this  World
 	 	level  Property von World
 		enemies  Property von Level */
-        this.addObjctsToMap(this.level.enemies);
         this.addObjctsToMap(this.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);

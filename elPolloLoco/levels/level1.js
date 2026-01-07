@@ -59,4 +59,12 @@ level1 = new Level([
     new BackgroundObject('imgs/5_background/layers/1_first_layer/1.png', 719*3),
 
 
-],);
+],
+[
+    new Coins(),
+    new Coins(),
+    new Coins(),
+    new Coins(),
+    new Coins(),
+    new Coins()
+]);
