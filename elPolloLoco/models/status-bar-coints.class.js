@@ -8,6 +8,7 @@ class StatusBarCoints extends DrawableObject {
         'imgs/7_statusbars/1_statusbar/1_statusbar_coin/blue/100.png'
     ];
 
+    // Wir haben 0 Punkte am Anfang
     percentageCoints = 0;
 
     constructor() {
@@ -17,29 +18,27 @@ class StatusBarCoints extends DrawableObject {
         this.y = 0;
         this.width = 200;
         this.height = 60;
+        // Wir rufen die Funktion am Anfang auf und übergeben ein Argument mit.
         this.setPercentageCoints(0);
     }
 
     setPercentageCoints(percentageCoints) {
+        // Zuerst wir das Argument 0 übergeben
         this.percentageCoints = percentageCoints;
+        // Es wird die Funktion angesprochen, um den richtigen Index herauszufinden.
         let path = this.IMAGES[this.resolveImageIndex()];
+        // Im img wird der key/path hineingesetzt und im draw weitergeleitet
         this.img = this.imageCache[path];
     }
 
-    resolveImageIndex() {
-        if(this.percentageCoints == 0) {
-            return 0;
-        } else if (this.percentageCoints > 20) {
-            return 1;
-        } else if (this.percentageCoints > 40) {
-            return 2;
-        } else if (this.percentageCoints > 60) {
-            return 3;
-        } else if (this.percentageCoints > 80) {
-            return 4;
-        } else {
-            return 0;
-        }
-    }
+resolveImageIndex() {
+    // Wenn 100 Punkte, dann Index 5 Bild zurückgeben
+    if (this.percentageCoints == 100) return 5;
+    if (this.percentageCoints > 80) return 4;
+    if (this.percentageCoints > 60) return 3;
+    if (this.percentageCoints > 40) return 2;
+    if (this.percentageCoints > 20) return 1;
+    return 0;
+}
 
 }

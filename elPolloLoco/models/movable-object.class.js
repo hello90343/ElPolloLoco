@@ -111,7 +111,7 @@ return (
     }
 
     hitCoint() {
-        this.collectionCoints += 20;
+        this.collectionCoints += 21;
         if(this.collectionCoints > 100) {
             this.collectionCoints = 100;
         } else {

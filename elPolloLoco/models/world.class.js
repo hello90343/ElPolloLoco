@@ -102,7 +102,7 @@ cointCollision() {
         if(this.character.isColliding(coint)) {
             coint.height = 0;
             this.character.hitCoint();
-            this.statusBarCoints.setPercentageCoints(this.character.setPercentageCoints);
+            this.statusBarCoints.setPercentageCoints(this.character.collectionCoints);
         }
     });
 }
