@@ -23,6 +23,7 @@ statusBarCoints = new StatusBarCoints();
 oven = new Oven();
 throwableObjects = [];
 deadChicken = [];
+deadCoints = [];
 
 // An den constructor werden die Argumente abgegeben
 constructor(canvas, keyboard) {
@@ -44,6 +45,7 @@ setWorld() {
 run() {
     setInterval(() => {
         this.cointCollision();
+        this.deadCollisionCoint();
         this.deadCollision();
         this.checkCollision();
         this.checkThrowObjects();
@@ -99,12 +101,21 @@ checkThrowObjects() {
 
 cointCollision() {
     this.level.coints.forEach((coint) => {
+        if(this.deadCoints.includes(coint)) return;
         if(this.character.isColliding(coint)) {
             coint.height = 0;
             this.character.hitCoint();
             this.statusBarCoints.setPercentageCoints(this.character.collectionCoints);
         }
     });
+}
+
+deadCollisionCoint() {
+    this.level.coints.forEach((coint) => {
+        if(this.character.isColliding(coint)) {
+            this.deadCoints.push(coint);
+        }
+    })
 }
 
 /* deadCollision() {
