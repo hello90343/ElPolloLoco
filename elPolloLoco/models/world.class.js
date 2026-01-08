@@ -19,6 +19,7 @@ keyboard;
  // this.camera_x = 0;  Objektwert 
 camera_x = 0;
 statusBar = new StatusBar(); // Statusbar aufrufen und verwenden als Variable
+statusBarCoints = new StatusBarCoints();
 oven = new Oven();
 throwableObjects = [];
 deadChicken = [];
@@ -100,6 +101,8 @@ cointCollision() {
     this.level.coints.forEach((coint) => {
         if(this.character.isColliding(coint)) {
             coint.height = 0;
+            this.character.hitCoint();
+            this.statusBarCoints.setPercentageCoints(this.character.setPercentageCoints);
         }
     });
 }
@@ -143,12 +146,9 @@ cointCollision() {
         // Space for fixed Objects
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
+        this.addToMap(this.statusBarCoints);
         this.ctx.translate(this.camera_x, 0); // Kamera wieder aktiv
 
-        // Space for fixed Objects (UI)
-        this.ctx.translate(-this.camera_x, 0);
-        this.addToMap(this.statusBar);
-        this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.oven);     
 
         this.addObjctsToMap(this.level.enemies);

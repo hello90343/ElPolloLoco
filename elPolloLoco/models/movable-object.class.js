@@ -11,6 +11,9 @@ class MovableObject extends DrawableObject {
     deadStatus = true;
     jumpHigh = 20;
 
+    collectionCoints = 0;
+    lastHitCoints = 0;
+
     // Für den Sprung gedacht appyGravity()
     applyGravity(){
         setInterval(() => {
@@ -105,6 +108,25 @@ return (
            // getTime() => Anzahl der Millisekunden seit dem 01.01.1970 (Unix-Zeit)
            // 1767364330123
         }
+    }
+
+    hitCoint() {
+        this.collectionCoints += 20;
+        if(this.collectionCoints > 100) {
+            this.collectionCoints = 100;
+        } else {
+            this.lastHitCoints = new Date().getTime();
+        }
+    }
+
+    isHurtCoint() {
+        let timepassedCoint = new Date().getTime() - this.lastHitCoints;
+        timepassedCoint = timepassedCoint / 1000;
+        return timepassedCoint < 1;
+    }
+
+    isDeadCoint() {
+        return this.collectionCoints == 0;
     }
 
     // isHurt(), isDead() => gehören zu energy und lösen die 
