@@ -42,6 +42,7 @@ setWorld() {
 
 run() {
     setInterval(() => {
+        this.cointCollision();
         this.deadCollision();
         this.checkCollision();
         this.checkThrowObjects();
@@ -94,6 +95,14 @@ checkThrowObjects() {
         }
     })
 } 
+
+cointCollision() {
+    this.level.coints.forEach((coint) => {
+        if(this.character.isColliding(coint)) {
+            coint.height = 0;
+        }
+    });
+}
 
 /* deadCollision() {
     this.level.enemies.forEach((enemy) => {
