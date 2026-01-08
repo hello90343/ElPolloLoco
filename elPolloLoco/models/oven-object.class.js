@@ -1,4 +1,4 @@
-class Oven extends DrawableObject {
+class Oven extends MovableObject {
     IMAGE_OVEN = ['imgs/11_oven/oven.svg'];
 
     constructor() {

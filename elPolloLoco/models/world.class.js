@@ -44,6 +44,7 @@ setWorld() {
 
 run() {
     setInterval(() => {
+        this.chickenBottleCollision()
         this.cointCollision();
         this.deadCollisionCoint();
         this.deadCollision();
@@ -114,6 +115,14 @@ deadCollisionCoint() {
     this.level.coints.forEach((coint) => {
         if(this.character.isColliding(coint)) {
             this.deadCoints.push(coint);
+        }
+    })
+}
+
+chickenBottleCollision() {
+    this.level.chickenBottle.forEach((cB) => {
+        if(this.oven.isColliding(cB)) {
+            cB.height = 0;
         }
     })
 }

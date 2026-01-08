@@ -55,7 +55,7 @@ animate() {
       this.moveLeft();
       this.otherDirection = false;
     }
-  }, 5000 / 60);
+  }, 500 / 60);
 }
 
 flatChicken(boelean) {

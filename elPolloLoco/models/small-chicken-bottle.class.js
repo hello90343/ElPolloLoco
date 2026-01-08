@@ -22,7 +22,6 @@ animate() {
   setInterval(() => {
     this.moveLeft();
     this.playAnimation(this.IMAGES);
-
   }, 5000/60);
 }
 }
