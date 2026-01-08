@@ -163,6 +163,7 @@ deadCollisionCoint() {
         this.addToMap(this.oven);     
 
         this.addObjctsToMap(this.level.enemies);
+        this.addObjctsToMap(this.level.chickenBottle);
         this.addObjctsToMap(this.level.coints);
 
         this.addToMap(this.character);

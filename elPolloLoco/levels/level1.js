@@ -66,4 +66,16 @@ level1 = new Level([
     new Coins(),
     new Coins(),
     new Coins()
+],
+[
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle(),
+    new SmallChickenBottle()
 ]);

@@ -8,13 +8,15 @@ class Level {
     clouds;
     backgroundObjects;
     coints;
+    chickenBottle;
     level_end_x = 2200;
     // Es werden hier die Argumente weitergeleitet und beim Aufruf durch level1
-    constructor(enemies, clouds, backgroundObjects, coints) {
+    constructor(enemies, clouds, backgroundObjects, coints, chickenBottle) {
         this.enemies = enemies;
         this.clouds = clouds; 
         this.backgroundObjects = backgroundObjects;
         this.coints = coints;
+        this.chickenBottle = chickenBottle;
     }
 }
 
