@@ -19,25 +19,8 @@ class SmallChickenBottle extends MovableObject {
     }
 
 animate() {
-  let movingRight = false;
-  // y 80
-  // console.log(`${this.y} Chicken`);
   setInterval(() => {
-    if (this.x < 400) {
-      movingRight = true;
-    }
-
-    if (this.x > 2500) {
-      movingRight = false;
-    }
-
-    if(movingRight) {
-      this.moveRight();
-      this.otherDirection = true;
-    } else {
-      this.moveLeft();
-      this.otherDirection = false;
-    }
+    this.moveLeft();
     this.playAnimation(this.IMAGES);
 
   }, 5000/60);
