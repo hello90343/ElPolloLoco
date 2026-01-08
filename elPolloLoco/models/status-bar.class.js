@@ -32,6 +32,7 @@ class StatusBar extends DrawableObject {
         // Index vom IMAGES wird durch resolveImageIndex() returnt
         let path = this.IMAGES[this.resolveImageIndex()];
         // Und das passende Bild bei img angezeigt
+        // key gesetzt
         this.img = this.imageCache[path];
     }
         resolveImageIndex(){

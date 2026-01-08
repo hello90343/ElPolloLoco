@@ -167,7 +167,6 @@ return (
                   this.currentImage++; 
 }
 
-
 }
 
 /* let world = new World(canvas);

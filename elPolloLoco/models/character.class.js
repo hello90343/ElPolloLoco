@@ -77,7 +77,7 @@ class Character extends MovableObject {
         setInterval(() => {
 
                   // Rechts Bewegung
-                  console.log(`${this.y} Character`);
+                  // console.log(`${this.y} Character`);
                   if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x) {
                     this.moveRight();
                     this.otherDirection = false;

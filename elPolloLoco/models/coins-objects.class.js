@@ -6,7 +6,7 @@ class Coins extends DrawableObject {
         let random_number = 30 + Math.random() * 200;
         super();
         this.loadImages(this.IMAGES_COINS);
-        this.x =  500 + Math.random() * 1800;
+        this.x =  400 + Math.random() * 1800;
         this.y = 50 + Math.random() * 100;
         this.width = random_number;
         this.height = random_number;

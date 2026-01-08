@@ -38,7 +38,7 @@ class Chicken extends MovableObject {
 animate() {
   let movingRight = false;
   // y 80
-  console.log(`${this.y} Chicken`);
+  // console.log(`${this.y} Chicken`);
   setInterval(() => {
     if (this.x < 400) {
       movingRight = true;
