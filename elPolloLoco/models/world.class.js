@@ -44,7 +44,8 @@ setWorld() {
 
 run() {
     setInterval(() => {
-        this.chickenBottleCollision()
+        this.chickenBottleCharacterCollision();
+        this.chickenBottleOvenCollision();
         this.cointCollision();
         this.deadCollisionCoint();
         this.deadCollision();
@@ -119,13 +120,25 @@ deadCollisionCoint() {
     })
 }
 
-chickenBottleCollision() {
+chickenBottleOvenCollision() {
     this.level.chickenBottle.forEach((cB) => {
         if(this.oven.isColliding(cB)) {
             cB.height = 0;
         }
     })
 }
+
+chickenBottleCharacterCollision() {
+    this.level.chickenBottle.forEach((cB) => {
+        if(this.character.isColliding(cB)) {
+            cB.height = 0;
+        }
+    });
+}
+
+
+
+
 
 /* deadCollision() {
     this.level.enemies.forEach((enemy) => {
