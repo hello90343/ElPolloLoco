@@ -97,8 +97,9 @@ checkThrowObjects() {
             enemy.flatChicken(true);
             setTimeout(() => {
                 enemy.height = 0;
+                enemy.y = 1000;
             }, 500);
-            this.character.jump(); 
+            // this.character.jump(); 
             this.deadChicken.push(enemy);
         }
     })

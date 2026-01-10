@@ -60,35 +60,27 @@ class MovableObject extends DrawableObject {
                this.y < mo.y + mo.height;
     }
 
-headColliding(mo) {
-/*     y beginnt oben → das ist der obere Rand (Kopf)
-    height ist die gesamte Höhe des Charakters */
-    // 105
-    // console.log(`${this.y} Character Y`);
-    // 250
-    // console.log(`${this.height} Character Height`);
-    // 360
-    // console.log(`${mo.y} Chicken y`);
-    // 80
-    // console.log(`${mo.height} Chicken Height`);
 
-    
-/*     this.y              → Oberkante (Kopf)
-this.y + this.height → Unterkante (Füße)
+headColliding(chicken) {
+  const charBottom = this.y + this.height;
+  const charLeft   = this.x;
+  const charRight  = this.x + this.width;
 
-mo.y                → Oberkante vom Chicken
-mo.y + mo.height    → Unterkante vom Chicken */
-// Gültig ab dem Höchstsprung
- if(this.y > 150) {
-return (
-    this.y < mo.y + mo.height - 270 &&
-    mo.y < this.y + this.height &&
-    this.x + this.width > mo.x &&
-    this.x < mo.x + mo.width
-    
-);
-} 
- }
+  const chickTop   = chicken.y;
+  const chickHeadBottom = chicken.y + chicken.height * 0.3;
+  const chickLeft  = chicken.x;
+  const chickRight = chicken.x + chicken.width;
+
+  return (
+    this.speedY < 0 &&
+
+    charBottom >= chickTop &&
+    charBottom <= chickHeadBottom &&
+
+    charRight > chickLeft &&
+    charLeft < chickRight
+  );
+}
 
 
     // Wenn zusammenprall mit den Chicken/enemy, dann Abzug der 
