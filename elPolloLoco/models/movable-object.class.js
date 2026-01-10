@@ -24,10 +24,49 @@ class MovableObject extends DrawableObject {
             // this.speedY > 0, dadurch kann man springen
             if(this.isAboveGround() || this.speedY > 0) {
                 // Soweit runtersetzten bis 180 y erreicht ist
-                // Position des Objekts reduzieren
-                this.y -= this.speedY; // Startwert 0
+                // Hier ersteht der Wurf
+                // Und geht irgendwann bei einer bestimmten Frame negativ
+                this.y /* character */ -= this.speedY /* Je Aufruf speedY/30 hoch */; // Je Aufruf 30/speedY nach oben
+                // Hier wird nur für den Quellcode der speedY verändert
                 this.speedY -= this.acceleration; // Negativ Steigerung 2.5
+                // (Frame1) Aufruf speedY/30 - acceleration/2.5 = 27.5
+                // (Frame2) Aufruf speedY/27.5 - acceleration/2.5 = 25
+                //  Dann fällt, da acceleration fester positiver Wert ist
+                // und speedY in die negative Zahl sich nach jedem Frame umwandelt
+                // (Frame17) Aufruf speedY/-2 - acceleration/2.5 = -4
+/*1     |  30   ↑ 
+ 2     |  28   ↑
+ 3     |  26   ↑
+ 4     |  24   ↑
+ 5     |  22   ↑
+ 6     |  20   ↑
+ 7     |  18   ↑
+ 8     |  16   ↑
+ 9     |  14   ↑
+10     |  12   ↑
+11     |  10   ↑
+12     |   8   ↑
+13     |   6   ↑
+14     |   4   ↑
+15     |   2   ↑
+16     |   0   ← PEAK Höchster Punkt
+17     |  -2   ↓
+18     |  -4   ↓
+19     |  -6   ↓
+20     |  -8   ↓
+21     | -10   ↓
+22     | -12   ↓
+23     | -14   ↓
+24     | -16   ↓
+25     | -18   ↓
+26     | -20   ↓
+27     | -22   ↓
+28     | -24   ↓
+29     | -26   ↓
+30     | -28   ↓
+31     | -30   ↓ */
             } 
+            
         }, 1000 / 25);
     }
 

@@ -60,6 +60,8 @@ run() {
 checkThrowObjects() {
     if(this.keyboard.D) {
         // x = links vom Character + 100, y = Je höher die Zahl, desto tiefer
+        // Liesst die Werte aus dem Objekt. Weiterleiten an class
+        // Von wo abgeworfen wird
         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
         // Beim Wurf einer Flasche wird ThrowableObject im Array gespeichert
         this.throwableObjects.push(bottle); 
@@ -129,6 +131,8 @@ chickenBottleCharacterCollision() {
             this.character.hitChickenBottle();
             this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
             this.deadBottle.push(cB);
+            this.throwableObjects.push(cB);
+            this.throwCollection++;
         }
     });
 }

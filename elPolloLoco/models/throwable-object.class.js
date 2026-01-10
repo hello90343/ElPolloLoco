@@ -9,8 +9,8 @@ class ThrowableObject extends MovableObject {
     }
 
     throw() {
-        this.speedY = 30;
-        this.applyGravity();
+        this.speedY = 20; // Hochwurfstärke
+        this.applyGravity(); // Schwerkraft starten
         setInterval(() => {
             this.x += 10;
         }, 25);
