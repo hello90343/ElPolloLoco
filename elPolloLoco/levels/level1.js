@@ -73,6 +73,5 @@ level1 = new Level([
     new SmallChickenBottle(),
     new SmallChickenBottle(),
     new SmallChickenBottle(),
-    new SmallChickenBottle(),
     new SmallChickenBottle()
  ]);                             

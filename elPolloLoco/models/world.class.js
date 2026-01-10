@@ -127,7 +127,7 @@ chickenBottleCharacterCollision() {
             cB.height = 0;
             this.character.hitChickenBottle();
             this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
-            this.deadOven.push(cB);
+            this.deadBottle.push(cB);
         }
     });
 }
