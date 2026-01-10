@@ -60,23 +60,25 @@ class MovableObject extends DrawableObject {
                this.y < mo.y + mo.height;
     }
 
-
 headColliding(chicken) {
   const charBottom = this.y + this.height;
   const charLeft   = this.x;
   const charRight  = this.x + this.width;
 
   const chickTop   = chicken.y;
-  const chickHeadBottom = chicken.y + chicken.height * 0.3;
+  const chickHeadBottom = chicken.y + chicken.height ;
   const chickLeft  = chicken.x;
   const chickRight = chicken.x + chicken.width;
 
   return (
+    // Character kommt von oben (fällt)
     this.speedY < 0 &&
 
+    // Unterkante Character berührt Kopfbereich Chicken
     charBottom >= chickTop &&
     charBottom <= chickHeadBottom &&
 
+    // JEDE horizontale Überlappung zählt
     charRight > chickLeft &&
     charLeft < chickRight
   );
