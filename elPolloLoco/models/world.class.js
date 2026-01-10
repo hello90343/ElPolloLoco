@@ -21,9 +21,11 @@ camera_x = 0;
 statusBar = new StatusBar(); // Statusbar aufrufen und verwenden als Variable
 statusBarCoints = new StatusBarCoints();
 oven = new Oven();
+statusBarChickenBottle = new StatusBarChickenBottle();
 throwableObjects = [];
 deadChicken = [];
 deadCoints = [];
+deadBottle = [];
 
 // An den constructor werden die Argumente abgegeben
 constructor(canvas, keyboard) {
@@ -45,6 +47,7 @@ setWorld() {
 run() {
     setInterval(() => {
         this.chickenBottleCharacterCollision();
+        this.deadCollisionBottle();
         this.chickenBottleOvenCollision();
         this.cointCollision();
         this.deadCollisionCoint();
@@ -64,6 +67,8 @@ checkThrowObjects() {
         this.throwableObjects.push(bottle); 
     }
 }
+
+// --------------------------------------------------------------
 
  checkCollision() {
          // Jeder Chicken wird angesprochen
@@ -101,6 +106,8 @@ checkThrowObjects() {
     })
 } 
 
+// --------------------------------------------------------------
+
 cointCollision() {
     this.level.coints.forEach((coint) => {
         if(this.deadCoints.includes(coint)) return;
@@ -120,6 +127,29 @@ deadCollisionCoint() {
     })
 }
 
+// --------------------------------------------------------------
+
+chickenBottleCharacterCollision() {
+    this.level.chickenBottle.forEach((cB) => {
+        if(this.deadBottle.includes(cB)) return;
+        if(this.character.isColliding(cB)) {
+            cB.height = 0;
+            this.character.hitChickenBottle();
+            this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
+        }
+    });
+}
+
+deadCollisionBottle() {
+    this.level.chickenBottle.forEach((cB) => {
+        if(this.character.isColliding(cB)) {
+            this.deadBottle.push(cB);
+        }
+    });
+}
+
+// --------------------------------------------------------------
+
 chickenBottleOvenCollision() {
     this.level.chickenBottle.forEach((cB) => {
         if(this.oven.isColliding(cB)) {
@@ -128,13 +158,8 @@ chickenBottleOvenCollision() {
     })
 }
 
-chickenBottleCharacterCollision() {
-    this.level.chickenBottle.forEach((cB) => {
-        if(this.character.isColliding(cB)) {
-            cB.height = 0;
-        }
-    });
-}
+
+
 
 
 
@@ -180,6 +205,7 @@ chickenBottleCharacterCollision() {
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
         this.addToMap(this.statusBarCoints);
+        this.addToMap(this.statusBarChickenBottle);
         this.ctx.translate(this.camera_x, 0); // Kamera wieder aktiv
 
         this.addToMap(this.oven);     

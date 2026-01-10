@@ -14,6 +14,9 @@ class MovableObject extends DrawableObject {
     collectionCoints = 0;
     lastHitCoints = 0;
 
+    collectionBottle = 0;
+    lastHitBottle = 0;
+
     // Für den Sprung gedacht appyGravity()
     applyGravity(){
         setInterval(() => {
@@ -110,24 +113,6 @@ return (
         }
     }
 
-    hitCoint() {
-        this.collectionCoints += 21;
-        if(this.collectionCoints > 100) {
-            this.collectionCoints = 100;
-        } else {
-            this.lastHitCoints = new Date().getTime();
-        }
-    }
-
-    isHurtCoint() {
-        let timepassedCoint = new Date().getTime() - this.lastHitCoints;
-        timepassedCoint = timepassedCoint / 1000;
-        return timepassedCoint < 1;
-    }
-
-    isDeadCoint() {
-        return this.collectionCoints == 0;
-    }
 
     // isHurt(), isDead() => gehören zu energy und lösen die 
     // entsprechenden Animationen des Character aus, wenn ein bestimmt 
@@ -188,6 +173,50 @@ return (
                   this.img = this.imageCache[path]; // Bild mit key aus dem Cache geholt
                   this.currentImage++; 
 }
+
+// -----------------------------------------------------
+
+    hitCoint() {
+        this.collectionCoints += 21;
+        if(this.collectionCoints > 100) {
+            this.collectionCoints = 100;
+        } else {
+            this.lastHitCoints = new Date().getTime();
+        }
+    }
+
+    isHurtCoint() {
+        let timepassedCoint = new Date().getTime() - this.lastHitCoints;
+        timepassedCoint = timepassedCoint / 1000;
+        return timepassedCoint < 1;
+    }
+
+    isDeadCoint() {
+        return this.collectionCoints == 0;
+    }
+
+    //---------------------------------------------
+
+    hitChickenBottle() {
+        this.collectionBottle += 21;
+        if(this.collectionBottle > 100) {
+            this.collectionBottle = 100;
+        } else {
+            this.lastHitBottle = new Date().getTime();
+        }
+    }
+
+    isHurtChickenBottle() {
+        let timepassedChickenBottle = new Date().getTime() - this.lastHitBottle;
+        timepassedChickenBottle = timepassedChickenBottle / 1000;
+        return timepassedChickenBottle < 1;
+    }
+
+    isDeadChickenBottle() {
+        return this.collectionBottle == 0;
+    }
+
+    //---------------------------------------------
 
 }
 
