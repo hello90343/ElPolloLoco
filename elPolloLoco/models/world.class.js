@@ -54,7 +54,7 @@ run() {
         this.checkThrowObjects();
         // Jede 200 Sekunden wird geprüft, ob das Bild 
         // in der andere Bild enthalten ist
-    }, 200);
+    }, 100);
 }
 
 checkThrowObjects() {
@@ -97,7 +97,7 @@ checkThrowObjects() {
             enemy.flatChicken(true);
             setTimeout(() => {
                 enemy.height = 0;
-            }, 700);
+            }, 500);
             this.character.jump(); 
             this.deadChicken.push(enemy);
         }

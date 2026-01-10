@@ -40,7 +40,6 @@ animate() {
   // y 80
   // console.log(`${this.y} Chicken`);
   setInterval(() => {
-    if(this.isDead)
     if (this.x < 400) {
       movingRight = true;
     }
@@ -61,9 +60,11 @@ animate() {
 }
 
 flatChicken(boelean) {
-  this.playAnimation(this.IMAGES_WALKING);
-  if(boelean) {
-    this.playAnimation(this.IMAGES_DEAD);
+  this.playAnimation(this.IMAGES_WALKING); 
+  setInterval(() => {
+      if(boelean) {
+      this.playAnimation(this.IMAGES_DEAD);
   }
+  }, 1)
 }
 }
