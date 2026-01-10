@@ -47,10 +47,8 @@ setWorld() {
 run() {
     setInterval(() => {
         this.chickenBottleCharacterCollision();
-        this.deadCollisionBottle();
         this.chickenBottleOvenCollision();
         this.cointCollision();
-        this.deadCollisionCoint();
         this.deadCollision();
         this.checkCollision();
         this.checkThrowObjects();
@@ -115,16 +113,9 @@ cointCollision() {
             coint.height = 0;
             this.character.hitCoint();
             this.statusBarCoints.setPercentageCoints(this.character.collectionCoints);
-        }
-    });
-}
-
-deadCollisionCoint() {
-    this.level.coints.forEach((coint) => {
-        if(this.character.isColliding(coint)) {
             this.deadCoints.push(coint);
         }
-    })
+    });
 }
 
 // --------------------------------------------------------------
@@ -136,14 +127,7 @@ chickenBottleCharacterCollision() {
             cB.height = 0;
             this.character.hitChickenBottle();
             this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
-        }
-    });
-}
-
-deadCollisionBottle() {
-    this.level.chickenBottle.forEach((cB) => {
-        if(this.character.isColliding(cB)) {
-            this.deadBottle.push(cB);
+            this.deadOven.push(cB);
         }
     });
 }
@@ -152,8 +136,10 @@ deadCollisionBottle() {
 
 chickenBottleOvenCollision() {
     this.level.chickenBottle.forEach((cB) => {
+        if(this.deadBottle.includes(cB)) return;
         if(this.oven.isColliding(cB)) {
             cB.height = 0;
+            this.deadBottle.push(cB);
         }
     })
 }
