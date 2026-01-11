@@ -7,6 +7,7 @@ class ThrowableObject extends MovableObject {
         this.width = 50; // Grösse des Bildes
         this.throw(); // Methode aufrufen
     }
+    
 
     throw() {
         this.speedY = 20; // Hochwurfstärke

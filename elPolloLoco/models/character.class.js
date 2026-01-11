@@ -44,6 +44,7 @@ class Character extends MovableObject {
     ];
 
 
+    collectionBottle = 0;
             // Zur Übersicht rübergebracht
             // Bei der Verwendung innerhalb der Class übersichtlich zur Verwendung
             // Damit der Character auf die World zugreifen kann

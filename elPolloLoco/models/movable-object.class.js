@@ -70,6 +70,8 @@ class MovableObject extends DrawableObject {
         }, 1000 / 25);
     }
 
+    // -----------------------------------------------------
+
     // Unters 180 nicht mehr applyGravity()
    isAboveGround() {
     // Wenn es keine Instanz von der ThrowableObject ist
@@ -81,6 +83,8 @@ class MovableObject extends DrawableObject {
         return this.y < 180;
     }
 }
+
+// -----------------------------------------------------
 
     // character.isCollding(chicken), this
     // mo ist jedes Element Chicken, dass in world aufgerufen wird
@@ -98,6 +102,8 @@ class MovableObject extends DrawableObject {
                // Wenn Chicken von der Grösse, grösser ist als der Character
                this.y < mo.y + mo.height;
     }
+
+    // -----------------------------------------------------
 
 headColliding(chicken) {
   const charBottom = this.y + this.height;
@@ -122,6 +128,8 @@ headColliding(chicken) {
     charLeft < chickRight
   );
 }
+
+// -----------------------------------------------------
 
 
     // Wenn zusammenprall mit den Chicken/enemy, dann Abzug der 
@@ -179,6 +187,8 @@ headColliding(chicken) {
     isDead() {
         return this.energy == 0;
     }
+
+    // -----------------------------------------------------
 
     moveRight() {
        // Vorfährts

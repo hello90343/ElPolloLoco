@@ -23,6 +23,7 @@ statusBarCoints = new StatusBarCoints();
 oven = new Oven();
 statusBarChickenBottle = new StatusBarChickenBottle();
 throwableObjects = [];
+throwableObjectsPlus = [];
 deadChicken = [];
 deadCoints = [];
 deadBottle = [];
@@ -37,12 +38,16 @@ constructor(canvas, keyboard) {
     this.run();
 }
 
+// --------------------------------------------------------------
+
 // also innerhalb der character class wird die world 
 // variable durch setWorld verändert
 setWorld() {
     // Variable wurde bei init() aufgerufen class World(erste Variable)
     this.character.world = this; // class World (Instanz)
 }
+
+// --------------------------------------------------------------
 
 run() {
     setInterval(() => {
@@ -57,16 +62,20 @@ run() {
     }, 100);
 }
 
+// --------------------------------------------------------------
+
 checkThrowObjects() {
-    if(this.keyboard.D) {
+    if(this.keyboard.D && this.character.collectionBottle > 5) {
         // x = links vom Character + 100, y = Je höher die Zahl, desto tiefer
         // Liesst die Werte aus dem Objekt. Weiterleiten an class
         // Von wo abgeworfen wird
         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
         // Beim Wurf einer Flasche wird ThrowableObject im Array gespeichert
-        this.throwableObjects.push(bottle); 
+        this.throwableObjectsPlus.push(bottle); 
+        this.character.collectionBottle -= 21;
     }
 }
+
 
 // --------------------------------------------------------------
 
@@ -127,12 +136,11 @@ chickenBottleCharacterCollision() {
     this.level.chickenBottle.forEach((cB) => {
         if(this.deadBottle.includes(cB)) return;
         if(this.character.isColliding(cB)) {
+            this.deadBottle.push(cB);
             cB.height = 0;
             this.character.hitChickenBottle();
             this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
-            this.deadBottle.push(cB);
-            this.throwableObjects.push(cB);
-            this.throwCollection++;
+            this.collectionBottle++;
         }
     });
 }
@@ -148,6 +156,8 @@ chickenBottleOvenCollision() {
         }
     })
 }
+
+// --------------------------------------------------------------
 
 
 
@@ -213,7 +223,7 @@ chickenBottleOvenCollision() {
 /*      this  World
 	 	level  Property von World
 		enemies  Property von Level */
-        this.addObjctsToMap(this.throwableObjects);
+        this.addObjctsToMap(this.throwableObjectsPlus);
 
         this.ctx.translate(-this.camera_x, 0);
     

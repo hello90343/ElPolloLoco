@@ -12,10 +12,6 @@ let chickenArr = [
     new Chicken(),
     new Chicken(),
     new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
-    new Chicken(),
     new Chicken()
 ];
 
@@ -68,7 +64,6 @@ level1 = new Level([
     new Coins()
 ],
 [
-    new SmallChickenBottle(),
     new SmallChickenBottle(),
     new SmallChickenBottle(),
     new SmallChickenBottle(),

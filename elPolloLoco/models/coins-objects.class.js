@@ -3,7 +3,7 @@ class Coins extends DrawableObject {
         'imgs/8_coin/coin_2.png'
     ];
     constructor() {
-        let random_number = 30 + Math.random() * 200;
+        let random_number = 150;
         super();
         this.loadImages(this.IMAGES_COINS);
         this.x =  400 + Math.random() * 1800;
