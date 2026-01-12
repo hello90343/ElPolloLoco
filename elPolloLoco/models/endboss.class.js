@@ -2,20 +2,14 @@
 class Endboss extends MovableObject {
     height = 300; // wie groß es ist (width, height)
     width = 500; // wie groß es ist (width, height)
-    y = 150; // wo ist es
+    y = 150; // wo ist es 
 
-     IMAGES_WALKING = [
-        'imgs/4_enemie_boss_chicken/2_alert/G5.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G6.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G7.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G8.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G9.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G10.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G11.png',
-        'imgs/4_enemie_boss_chicken/2_alert/G12.png'
-    ]; 
-
-    hadFirstContact = false;
+    IMAGES_WALKING = [
+        'imgs/4_enemie_boss_chicken/1_walk/G1.png',
+        'imgs/4_enemie_boss_chicken/1_walk/G2.png',
+        'imgs/4_enemie_boss_chicken/1_walk/G3.png',
+        'imgs/4_enemie_boss_chicken/1_walk/G4.png'
+    ];
 
     constructor() {
         // Ein Bild laden
@@ -45,9 +39,8 @@ class Endboss extends MovableObject {
             
 /*          Der Code zählt Zeit (i), spielt Animationen
             und triggert ein Ereignis bei einer bestimmten Position. */
-            if(world.character.x > 2800 && !hadFirstContact) {
+            if(world.character.x > 2800) {
                 i = 0;
-                hadFirstContact = true;
             }
         }, 150);
    }
