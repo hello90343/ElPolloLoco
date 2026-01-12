@@ -24,6 +24,7 @@ oven = new Oven();
 statusBarChickenBottle = new StatusBarChickenBottle();
 throwableBottle = new ThrowableObject();
 
+realThrowableObjects = [];
 throwableObjects = [];
 deadChicken = [];
 deadCoints = [];
@@ -67,13 +68,14 @@ run() {
 // --------------------------------------------------------------
 
 checkThrowObjects() {
-    if(this.keyboard.D && this.character.collectionBottle > 5) {
+    if(this.keyboard.D && this.realThrowableObjects.length > 0) {
         // x = links vom Character + 100, y = Je höher die Zahl, desto tiefer
         // Liesst die Werte aus dem Objekt. Weiterleiten an class
         // Von wo abgeworfen wird
         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
         // Beim Wurf einer Flasche wird ThrowableObject im Array gespeichert
         this.throwableObjects.push(bottle); 
+        this.realThrowableObjects.splice(0,1);
     }
 }
 
@@ -141,7 +143,7 @@ chickenBottleCharacterCollision() {
             cB.height = 0;
             this.character.hitChickenBottle();
             this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
-            this.collectionBottle++;
+            this.realThrowableObjects.push(cB);
         }
     });
 }
@@ -168,6 +170,9 @@ characterEndbossCollision() {
         }
     })
 }
+
+// --------------------------------------------------------------
+
 
 
 
