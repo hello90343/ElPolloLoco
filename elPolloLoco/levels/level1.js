@@ -18,7 +18,8 @@ let chickenArr = [
 level1 = new Level([
     // Ausgabe der Chicken-Datei
     ...chickenArr,
-    // Ausgabe der Endboss-Datei
+],
+[
     new Endboss()
 ],
 [

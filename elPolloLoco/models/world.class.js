@@ -22,8 +22,9 @@ statusBar = new StatusBar(); // Statusbar aufrufen und verwenden als Variable
 statusBarCoints = new StatusBarCoints();
 oven = new Oven();
 statusBarChickenBottle = new StatusBarChickenBottle();
+throwableBottle = new ThrowableObject();
+
 throwableObjects = [];
-throwableObjectsPlus = [];
 deadChicken = [];
 deadCoints = [];
 deadBottle = [];
@@ -51,6 +52,7 @@ setWorld() {
 
 run() {
     setInterval(() => {
+
         this.chickenBottleCharacterCollision();
         this.chickenBottleOvenCollision();
         this.cointCollision();
@@ -71,8 +73,7 @@ checkThrowObjects() {
         // Von wo abgeworfen wird
         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100);
         // Beim Wurf einer Flasche wird ThrowableObject im Array gespeichert
-        this.throwableObjectsPlus.push(bottle); 
-        this.character.collectionBottle -= 21;
+        this.throwableObjects.push(bottle); 
     }
 }
 
@@ -166,6 +167,7 @@ chickenBottleOvenCollision() {
 
 
 
+
 /* deadCollision() {
     this.level.enemies.forEach((enemy) => {
 
@@ -212,6 +214,7 @@ chickenBottleOvenCollision() {
         this.addToMap(this.oven);     
 
         this.addObjctsToMap(this.level.enemies);
+        this.addObjctsToMap(this.level.endboss);
         this.addObjctsToMap(this.level.chickenBottle);
         this.addObjctsToMap(this.level.coints);
 
@@ -223,7 +226,7 @@ chickenBottleOvenCollision() {
 /*      this  World
 	 	level  Property von World
 		enemies  Property von Level */
-        this.addObjctsToMap(this.throwableObjectsPlus);
+        this.addObjctsToMap(this.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);
     
