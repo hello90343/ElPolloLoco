@@ -52,7 +52,7 @@ setWorld() {
 
 run() {
     setInterval(() => {
-
+        this.characterEndbossCollision();
         this.chickenBottleCharacterCollision();
         this.chickenBottleOvenCollision();
         this.cointCollision();
@@ -159,6 +159,15 @@ chickenBottleOvenCollision() {
 }
 
 // --------------------------------------------------------------
+
+characterEndbossCollision() {
+    this.level.endboss.forEach((eb) => {
+        if(this.character.isColliding(eb)) {
+            this.character.hit();
+            this.statusBar.setPercentage(this.character.energy);
+        }
+    })
+}
 
 
 
