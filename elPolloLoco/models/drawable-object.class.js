@@ -33,7 +33,7 @@ class DrawableObject {
     // Wenn drawFrame() bei einem Character oder Chicken aufgerufen wird,
     // wird der Rahmen angezeigt. Bei allen anderen Objekten nicht
     // – auch wenn sie dieselbe Methode aufrufen.
-    if(this instanceof Character || this instanceof Chicken) {
+/*     if(this instanceof Character || this instanceof Chicken) {
           // Ab hier zeichne ich etwas Neues
           // Man braucht ctx.beginPath(), damit jede Zeichnung für sich allein steht.
           ctx.beginPath();  
@@ -43,7 +43,7 @@ class DrawableObject {
           ctx.rect(this.x, this.y, this.width, this.height);
           // stroke() macht den Linienrand sichtbar.
           ctx.stroke();
-        }
+        } */
     }
 
         /**

@@ -14,7 +14,7 @@ class SmallChickenBottle extends MovableObject {
         this.loadImage('imgs/3_enemies_chicken/w_1.svg');
         this.loadImages(this.IMAGES);
         this.x =  500 + Math.random() * 1800;
-        this.speed = 2;
+        this.speed = 1;
         this.animate();
     }
 

@@ -1,8 +1,7 @@
 // Aufgerufen alle in level1 
 class Endboss extends MovableObject {
-
     height = 300; // wie groß es ist (width, height)
-    width = 300; // wie groß es ist (width, height)
+    width = 500; // wie groß es ist (width, height)
     y = 150; // wo ist es
 
      IMAGES_WALKING = [
@@ -23,13 +22,16 @@ class Endboss extends MovableObject {
         super().loadImage(this.IMAGES_WALKING[0]);
         // Bilder laden -> mit Animation
         this.loadImages(this.IMAGES_WALKING);
-        this.x = 2500; // wo ist es
+        this.x = 2000; // wo ist es
+        this.speed = 10;
         // this.animate(); // Methode Aufruf
+        this.animate();
     }
 
     animate() {
         let i = 0;
         setInterval(() => {
+            this.moveLeft();
             // wird benutzt, um die erste Animation zeitlich zu begrenzen.
             if(i < 10) {
                 // 10 Intervall * 150 Milisekunden = 1,5 Sekunden
