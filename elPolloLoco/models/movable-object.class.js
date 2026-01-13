@@ -6,16 +6,21 @@ class MovableObject extends DrawableObject {
     otherDirection = false; // Richtung des Bildes des Charakters
     speedY = 0; // Startwert, dann geht nur noch in die negative Y
     acceleration = 2.5; // Negativ Startwert durch acceleration
-    energy = 100;
     lastHit = 0;
     deadStatus = true;
     jumpHigh = 20;
+
+    energy = 100;
+    energyEndboss = 100;
 
     collectionCoints = 0;
     lastHitCoints = 0;
 
     collectionBottle = 0;
     lastHitBottle = 0;
+
+    lastHitEndboss = 0;
+
 
     // Für den Sprung gedacht appyGravity()
     applyGravity(){
@@ -260,6 +265,26 @@ headColliding(chicken) {
     }
 
     //---------------------------------------------
+
+        hitEndboss() {
+        this.energyEndboss -= 21;
+        if(this.energyEndboss < 0) {
+            this.energyEndboss = 0;
+        } else {
+           this.lastHitEndboss = new Date().getTime();
+        }
+    }
+
+       isHurtEndboss() {
+       let timepassedEndboss = new Date().getTime() - this.lastHitEndboss;
+       timepassedEndboss = timepassedEndboss / 1000;
+       return timepassedEndboss < 1; 
+    }
+
+       isDeadEndboss() {
+        return this.energyEndboss == 0;
+    }
+
 
 }
 

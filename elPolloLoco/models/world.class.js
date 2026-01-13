@@ -179,8 +179,8 @@ bottleEndbossCollision() {
     this.throwableObjects.forEach((bottle) => {
         if(this.deadBottle.includes(this.endboss)) return;
         if(this.endboss.isColliding(bottle)) {
-            this.character.hit();
-            this.statusBar.setPercentage(this.character.energy);
+            this.endboss.hitEndboss();
+            this.endbossStatusBar.setPercentageEndboss(this.endboss.energyEndboss);
             this.deadEndboss.push(this.endboss);
         }
     })
