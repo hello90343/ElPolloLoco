@@ -24,6 +24,7 @@ statusBarCoints = new StatusBarCoints();
 oven = new Oven();
 statusBarChickenBottle = new StatusBarChickenBottle();
 throwableBottle = new ThrowableObject();
+endbossStatusBar = new StatusBarEndboss();
 
 realThrowableObjects = [];
 throwableObjects = [];
@@ -178,7 +179,8 @@ bottleEndbossCollision() {
     this.throwableObjects.forEach((bottle) => {
         if(this.deadBottle.includes(this.endboss)) return;
         if(this.endboss.isColliding(bottle)) {
-            this.endboss.height = 0;
+            this.character.hit();
+            this.statusBar.setPercentage(this.character.energy);
             this.deadEndboss.push(this.endboss);
         }
     })
@@ -235,6 +237,7 @@ bottleEndbossCollision() {
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
         this.addToMap(this.statusBarCoints);
         this.addToMap(this.statusBarChickenBottle);
+        this.addToMap(this.endbossStatusBar);
         this.ctx.translate(this.camera_x, 0); // Kamera wieder aktiv
 
         this.addToMap(this.oven);     
