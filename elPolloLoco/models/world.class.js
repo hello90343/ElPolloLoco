@@ -32,6 +32,7 @@ deadChicken = [];
 deadCoints = [];
 deadBottle = [];
 deadEndboss = [];
+deadBottleCollision = [];
 
 // An den constructor werden die Argumente abgegeben
 constructor(canvas, keyboard) {
@@ -178,10 +179,12 @@ characterEndbossCollision() {
 bottleEndbossCollision() {
     this.throwableObjects.forEach((bottle) => {
         if(this.deadBottle.includes(this.endboss)) return;
+        if(this.deadBottleCollision.includes(bottle)) return;
         if(this.endboss.isColliding(bottle)) {
             this.endboss.hitEndboss();
             this.endbossStatusBar.setPercentageEndboss(this.endboss.energyEndboss);
             this.deadEndboss.push(this.endboss);
+            this.deadBottleCollision.push(bottle);
         }
     })
 }

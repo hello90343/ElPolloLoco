@@ -267,7 +267,7 @@ headColliding(chicken) {
     //---------------------------------------------
 
         hitEndboss() {
-        this.energyEndboss -= 21;
+        this.energyEndboss -= 19;
         if(this.energyEndboss < 0) {
             this.energyEndboss = 0;
         } else {
