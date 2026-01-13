@@ -61,6 +61,7 @@ run() {
         this.deadCollision();
         this.checkCollision();
         this.checkThrowObjects();
+        this.bottleEndbossCollision();
         // Jede 200 Sekunden wird geprüft, ob das Bild 
         // in der andere Bild enthalten ist
     }, 100);
@@ -170,6 +171,16 @@ characterEndbossCollision() {
     }
 }
 
+// --------------------------------------------------------------
+
+bottleEndbossCollision() {
+    this.throwableObjects.forEach((bottle) => {
+        if(this.endboss.isColliding(bottle)) {
+            this.endboss.height = 0;
+            console.log("Getroffen")
+        }
+    })
+}
 
 
 
