@@ -20,9 +20,6 @@ level1 = new Level([
     ...chickenArr,
 ],
 [
-    new Endboss()
-],
-[
     // Ausgabe der Cloud-Datei
     new Cloud()
 ],

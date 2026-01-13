@@ -3,6 +3,7 @@ class World {
 // Ist nicht im Array drine, da es nur einmal aufgerufen wird.
 // Wir rufen die class Character auf und haben mit der Variable Zugriff auf die Variablen
 character = new Character();
+endboss = new Endboss();
 
 // Wir deklarieren hier, weil es für diese Seite für die Übersicht 
 // ist und wir es nicht von der anderen Seite entnehmen müssen, 
@@ -163,15 +164,13 @@ chickenBottleOvenCollision() {
 // --------------------------------------------------------------
 
 characterEndbossCollision() {
-    this.level.endboss.forEach((eb) => {
-        if(this.character.isColliding(eb)) {
-            this.character.hit();
-            this.statusBar.setPercentage(this.character.energy);
-        }
-    })
+    if(this.character.isColliding(this.endboss)) {
+        this.character.hit();
+        this.statusBar.setPercentage(this.character.energy);
+    }
 }
 
-// --------------------------------------------------------------
+
 
 
 
@@ -228,11 +227,11 @@ characterEndbossCollision() {
         this.addToMap(this.oven);     
 
         this.addObjctsToMap(this.level.enemies);
-        this.addObjctsToMap(this.level.endboss);
         this.addObjctsToMap(this.level.chickenBottle);
         this.addObjctsToMap(this.level.coints);
 
         this.addToMap(this.character);
+        this.addToMap(this.endboss);
         this.addObjctsToMap(this.level.clouds);
         // enemies kommt aus der Level-Klasse und wird als 
         // Argument an addObjctsToMap übergeben.
