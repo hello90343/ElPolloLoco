@@ -30,6 +30,7 @@ throwableObjects = [];
 deadChicken = [];
 deadCoints = [];
 deadBottle = [];
+deadEndboss = [];
 
 // An den constructor werden die Argumente abgegeben
 constructor(canvas, keyboard) {
@@ -175,9 +176,10 @@ characterEndbossCollision() {
 
 bottleEndbossCollision() {
     this.throwableObjects.forEach((bottle) => {
+        if(this.deadBottle.includes(this.endboss)) return;
         if(this.endboss.isColliding(bottle)) {
             this.endboss.height = 0;
-            console.log("Getroffen")
+            this.deadEndboss.push(this.endboss);
         }
     })
 }
