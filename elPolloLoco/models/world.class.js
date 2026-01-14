@@ -238,9 +238,15 @@ bottleEndbossCollision() {
         // Also innerhalb der Instanz werden die Variable verwendet 
         // Bilder mit Eigenschaften an eine Funktion weitergeben
         // Background, Cloud, Chicken, Endboss
-        this.addObjctsToMap(this.level.backgroundObjects);
+        this.addObjctsToMap(this.level.backgroundObjects);     
 
-        // Space for fixed Objects
+        this.addObjctsToMap(this.level.enemies);
+        this.addObjctsToMap(this.level.chickenBottle);
+        this.addObjctsToMap(this.level.coints);
+
+        this.addToMap(this.endboss);
+        this.addObjctsToMap(this.level.clouds);
+
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
         this.addToMap(this.statusBarCoints);
@@ -248,15 +254,6 @@ bottleEndbossCollision() {
         this.addToMap(this.endbossStatusBar);
         this.ctx.translate(this.camera_x, 0); // Kamera wieder aktiv
 
-        this.addToMap(this.oven);     
-
-        this.addObjctsToMap(this.level.enemies);
-        this.addObjctsToMap(this.level.chickenBottle);
-        this.addObjctsToMap(this.level.coints);
-
-        this.addToMap(this.character);
-        this.addToMap(this.endboss);
-        this.addObjctsToMap(this.level.clouds);
         // enemies kommt aus der Level-Klasse und wird als 
         // Argument an addObjctsToMap übergeben.
         // Properties sind Variablen, die zu einem Objekt gehören.
@@ -264,6 +261,8 @@ bottleEndbossCollision() {
 	 	level  Property von World
 		enemies  Property von Level */
         this.addObjctsToMap(this.throwableObjects);
+        this.addToMap(this.character);
+        this.addToMap(this.oven);
 
         this.ctx.translate(-this.camera_x, 0);
     

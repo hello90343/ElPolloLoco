@@ -14,7 +14,7 @@ class StatusBarChickenBottle extends DrawableObject{
         super();
         this.loadImages(this.IMAGES);
         this.x = 40;
-        this.y = 50;
+        this.y = 60;
         this.width = 200;
         this.height = 60;
         this.setPercentageChickenBottle(0);
