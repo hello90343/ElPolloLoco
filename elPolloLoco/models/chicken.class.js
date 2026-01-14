@@ -29,7 +29,7 @@ class Chicken extends MovableObject {
        // Zufällige Zahl, die die Position der Chicken aussucht
        this.x =  300 + Math.random() * 1800;
        // Zufällige Zahl, die die Geschwindigkeit der Chicken aussucht
-       this.speed = 10;
+       this.speed = 3;
        // Automatisches Gehen der Chicken
        this.animate();
        this.flatChicken();
@@ -44,7 +44,7 @@ animate() {
     }
 
     if (this.x > 2500) this.movingRight = false;
-    
+
     if (this.movingRight) {
         this.moveRight();
         this.otherDirection = true;
