@@ -65,6 +65,7 @@ run() {
         this.checkCollision();
         this.checkThrowObjects();
         this.bottleEndbossCollision();
+        this.endbossOvenCollision();
         // Jede 200 Sekunden wird geprüft, ob das Bild 
         // in der andere Bild enthalten ist
     }, 100);
@@ -194,6 +195,16 @@ bottleEndbossCollision() {
 
 // --------------------------------------------------------------
 
+endbossOvenCollision() {
+    if(this.oven.isColliding(this.endboss)) {
+        this.oven.height = 0;
+        this.level.enemies.forEach((enemy) => {
+                enemy.strictMovingLeft = true;
+                enemy.speed = 30;
+        })
+    }
+}
+
 
 
 
@@ -240,12 +251,12 @@ bottleEndbossCollision() {
         // Background, Cloud, Chicken, Endboss
         this.addObjctsToMap(this.level.backgroundObjects);     
 
-        this.addObjctsToMap(this.level.enemies);
-        this.addObjctsToMap(this.level.chickenBottle);
-        this.addObjctsToMap(this.level.coints);
-
         this.addToMap(this.endboss);
+        this.addObjctsToMap(this.level.chickenBottle);
+        this.addObjctsToMap(this.level.enemies);
+
         this.addObjctsToMap(this.level.clouds);
+        this.addObjctsToMap(this.level.coints);
 
         this.ctx.translate(-this.camera_x, 0); // Kamera zurücksetzten
         this.addToMap(this.statusBar); // Statusbar wird gezeichnet
