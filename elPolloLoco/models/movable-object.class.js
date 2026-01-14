@@ -143,7 +143,7 @@ headColliding(chicken) {
     // hit() wird durch checkCollision() aufgerufen, 
     // dann wird die Zeit gespeichert
     hit() {
-        this.energy -= 5;
+        this.energy -= 6;
         if(this.energy < 0) {
             this.energy = 0;
         } else {

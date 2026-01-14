@@ -65,6 +65,7 @@ run() {
         this.checkCollision();
         this.checkThrowObjects();
         this.bottleEndbossCollision();
+        this.statusBarBottledisappear()
         // Jede 200 Sekunden wird geprüft, ob das Bild 
         // in der andere Bild enthalten ist
     }, 100);
@@ -81,6 +82,7 @@ checkThrowObjects() {
         // Beim Wurf einer Flasche wird ThrowableObject im Array gespeichert
         this.throwableObjects.push(bottle); 
         this.realThrowableObjects.splice(0,1);
+        this.character.collectionBottle -= 21;
     }
 }
 
@@ -187,6 +189,15 @@ bottleEndbossCollision() {
             this.deadBottleCollision.push(bottle);
         }
     })
+}
+
+// --------------------------------------------------------------
+
+statusBarBottledisappear() {
+    if (this.character.collectionBottle < 0) {
+        this.statusBarChickenBottle.width = 0;
+        this.statusBarChickenBottle.height = 0;
+    }
 }
 
 
