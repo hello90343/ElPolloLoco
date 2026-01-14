@@ -65,7 +65,6 @@ run() {
         this.checkCollision();
         this.checkThrowObjects();
         this.bottleEndbossCollision();
-        this.statusBarBottledisappear()
         // Jede 200 Sekunden wird geprüft, ob das Bild 
         // in der andere Bild enthalten ist
     }, 100);
@@ -83,6 +82,8 @@ checkThrowObjects() {
         this.throwableObjects.push(bottle); 
         this.realThrowableObjects.splice(0,1);
         this.character.collectionBottle -= 21;
+        this.statusBarChickenBottle.setPercentageChickenBottle(this.character.collectionBottle);
+        
     }
 }
 
@@ -192,13 +193,6 @@ bottleEndbossCollision() {
 }
 
 // --------------------------------------------------------------
-
-statusBarBottledisappear() {
-    if (this.character.collectionBottle < 0) {
-        this.statusBarChickenBottle.width = 0;
-        this.statusBarChickenBottle.height = 0;
-    }
-}
 
 
 
