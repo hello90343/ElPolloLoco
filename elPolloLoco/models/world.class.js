@@ -201,6 +201,9 @@ endbossOvenCollision() {
         this.level.enemies.forEach((enemy) => {
                 enemy.strictMovingLeft = true;
                 enemy.speed = 30;
+                enemy.height = 200;
+                enemy.width = 200;
+                enemy.y = 250;
         })
     }
 }

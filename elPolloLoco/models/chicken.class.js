@@ -41,9 +41,10 @@ animate() {
 
     if (!this.strictMovingLeft) {
         if (this.x < 400) this.movingRight = true;
-        if (this.x > 2500) this.movingRight = false;
     }
 
+    if (this.x > 2500) this.movingRight = false;
+    
     if (this.movingRight) {
         this.moveRight();
         this.otherDirection = true;
@@ -54,7 +55,7 @@ animate() {
 
     this.playAnimation(this.IMAGES_WALKING);
 
-  }, 6000 / 60);
+  }, 3000 / 60);
 }
 
 flatChicken(boelean) {
